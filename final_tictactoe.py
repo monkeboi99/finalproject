@@ -20,17 +20,18 @@ def drawBoard(board):
 
 def inputPlayerLetter():
     # Lets the player type which letter they want to be.
-    # Returns a list with the player's letter as the first item, and the computer's letter as the second.
-    letter = ''
-    while not (letter == 'X' or letter == 'O'):
-        print('Do you want to be X or O?')
-        letter = input().upper()
-
-    # the first element in the tuple is the player's letter, the second is the computer's letter.
-    if letter == 'X':
-        return ['X', 'O']
+    # Returns a list with the first player's letter as the first item, and the second player's letter as the second.
+player1 = input('Do you want to be X or O?')
+while True:
+    if player1.upper == 'X':
+        player2 = 'O'
+        print("You've chosen " + player1 + ". Player 2 will be " + player2)
+        return player1.upper(), player2
+    elif player1.upper == 'O':
+        player2 = 'X'
+        print("You've chosen " + player1 + ". Player 2 will be " + player2)
     else:
-        return ['O', 'X']
+        player1 = input("Please pick X or O.")
 
 def whoGoesFirst():
     # Randomly choose the player who goes first.
