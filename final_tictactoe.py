@@ -2,7 +2,6 @@
 
 import random
 
-class board
 def drawBoard(board):
     # This function prints out the board that it was passed.
 
