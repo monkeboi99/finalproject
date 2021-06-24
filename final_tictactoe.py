@@ -96,10 +96,10 @@ def chooseRandomMoveFromList(board, movesList):
 
 def getComputerMove(board, computerLetter):
     # Given a board and the computer's letter, determine where to move and return that move.
-    if computerLetter == 'X':
-        playerLetter = 'O'
+    if player1Letter == 'X':
+        player2Letter = 'O'
     else:
-        playerLetter = 'X'
+        player2Letter = 'X'
 
     # Here is our algorithm for our Tic Tac Toe AI:
     # First, check if we can win in the next move
@@ -143,21 +143,21 @@ print('Welcome to Tic Tac Toe!')
 while True:
     # Reset the board
     theBoard = [' '] * 10
-    playerLetter, computerLetter = inputPlayerLetter()
+    player1Letter, player2Letter = inputPlayerLetter()
     turn = whoGoesFirst()
     print('The ' + turn + ' will go first.')
     gameIsPlaying = True
 
     while gameIsPlaying:
-        if turn == 'player':
-            # Player's turn.
+        if turn == 'player1':
+            # Player1's turn.
             drawBoard(theBoard)
-            move = getPlayerMove(theBoard)
-            makeMove(theBoard, playerLetter, move)
+            move = getPlayer1Move(theBoard)
+            makeMove(theBoard, player1Letter, move)
 
-            if isWinner(theBoard, playerLetter):
+            if isWinner(theBoard, player1Letter):
                 drawBoard(theBoard)
-                print('Hooray! You have won the game!')
+                print('Hooray! Player 1 has won the game!')
                 gameIsPlaying = False
             else:
                 if isBoardFull(theBoard):
@@ -165,16 +165,16 @@ while True:
                     print('The game is a tie!')
                     break
                 else:
-                    turn = 'computer'
+                    turn = 'player2'
 
         else:
-            # Computer's turn.
-            move = getComputerMove(theBoard, computerLetter)
-            makeMove(theBoard, computerLetter, move)
+            # Player2's turn.
+            move = getPlayer2Move(theBoard, player2Letter)
+            makeMove(theBoard, player2Letter, move)
 
-            if isWinner(theBoard, computerLetter):
+            if isWinner(theBoard, player2Letter):
                 drawBoard(theBoard)
-                print('The computer has beaten you! You lose.')
+                print('Yay! Player 2 has won the game!')
                 gameIsPlaying = False
             else:
                 if isBoardFull(theBoard):
@@ -182,7 +182,7 @@ while True:
                     print('The game is a tie!')
                     break
                 else:
-                    turn = 'player'
+                    turn = 'player1'
 
     if not playAgain():
         break
