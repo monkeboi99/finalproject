@@ -74,7 +74,16 @@ def isSpaceFree(board, move):
     # Return true if the passed move is free on the passed board.
     return board[move] == ' '
 
-def getPlayerMove(board):
+def getPlayer1Move(board):
+    # Let the player type in his move.
+    move = ' '
+    while move not in '1 2 3 4 5 6 7 8 9'.split() or not isSpaceFree(board, int(move)):
+        print('What is your next move? (1-9)')
+        move = input()
+    return int(move)
+
+
+def getPlayer2Move(board):
     # Let the player type in his move.
     move = ' '
     while move not in '1 2 3 4 5 6 7 8 9'.split() or not isSpaceFree(board, int(move)):
@@ -96,7 +105,7 @@ def chooseRandomMoveFromList(board, movesList):
         return None
 
 def getPlayer2Move(board, computerLetter):
-    # Given a board and the computer's letter, determine where to move and return that move.
+    # Given a board and the Player 2's letter, determine where to move and return that move.
     if player1Letter == 'X':
         player2Letter = 'O'
     else:
