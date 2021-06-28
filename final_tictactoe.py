@@ -62,14 +62,6 @@ def isWinner(bo, le):
     (bo[7] == le and bo[5] == le and bo[3] == le) or # diagonal
     (bo[9] == le and bo[5] == le and bo[1] == le)) # diagonal
 
-def getBoardCopy(board):
-    # Make a duplicate of the board list and return it the duplicate.
-    dupeBoard = []
-
-    for i in board:
-        dupeBoard.append(i)
-
-    return dupeBoard
 
 def isSpaceFree(board, move):
     # Return true if the passed move is free on the passed board.
@@ -92,18 +84,6 @@ def getPlayer2Move(board):
         move = input()
     return int(move)
 
-def chooseRandomMoveFromList(board, movesList):
-    # Returns a valid move from the passed list on the passed board.
-    # Returns None if there is no valid move.
-    possibleMoves = []
-    for i in movesList:
-        if isSpaceFree(board, i):
-            possibleMoves.append(i)
-
-    if len(possibleMoves) != 0:
-        return random.choice(possibleMoves)
-    else:
-        return None
 
 def isBoardFull(board):
     # Return True if every space on the board has been taken. Otherwise return False.
