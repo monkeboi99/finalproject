@@ -98,7 +98,22 @@ class Game:
 
 
 print('Welcome to Tic Tac Toe!')
-
+print('The objective of the game is to get 3 in a row')
+print('Decide who player 1 and player 2 is before playing')
+print()
+print('''These are the spaces and their corresponding numbers for reference
+   |   |
+ 7 | 8 | 9
+   |   |
+-----------
+   |   |
+ 4 | 5 | 6
+   |   | 
+-----------
+   |   |
+ 1 | 2 | 3
+   |   |
+''')
 while True:
     # Reset the board
     tic = Game([' '] * 10)
@@ -134,7 +149,7 @@ while True:
 
             if tic.isWinner(player2Letter):
                 tic.drawBoard()
-                print('Yay! Player 2 has won the game!')
+                print('Hooray! Player 2 has won the game!')
                 gameIsPlaying = False
             else:
                 if tic.isBoardFull():
